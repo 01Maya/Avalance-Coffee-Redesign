@@ -184,11 +184,15 @@ p { margin: 0; }
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .stage { order: -1; width: min(340px, 84%); }
+  .hero-copy { display: contents; }
+  .hero-intro { order: 0; }
+  .stage { order: 1; width: min(340px, 84%); }
+  .hero-details { order: 2; }
   .stamp { width: 92px; height: 92px; font-size: .8rem; right: -10px; }
   .stamp b { font-size: 1.6rem; }
   .hero h1 { max-width: 13ch; }
 }
+
 
 /* ---------- Press ---------- */
 .press { padding-block: 1.6rem 3rem; }
