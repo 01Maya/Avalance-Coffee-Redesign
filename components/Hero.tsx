@@ -89,41 +89,45 @@ export function Hero() {
       </div>
 
       <div className="wrap hero-grid">
-        <div>
-          <p className="tagline" data-h="" style={d(0)}>Good coffee. Brighter days.</p>
-          <SplitText as="h1" id="h1" auto base={250} text="Café-style coffee, made at home." />
-          <p className="lede" data-h="" style={d(800)}>
-            Rich, creamy instant coffee in single-serve sachets. Empty one into a mug, add water, done.
-          </p>
-
-          <div className="picker" role="tablist" aria-label="Choose a flavour" id="picker" data-h="" style={d(920)}>
-            {ORDER.map((k) => (
-              <button key={k} type="button" role="tab" aria-selected={current === k} onClick={() => set(k)}>
-                <span className="sw" style={{ '--c': FLAVOURS[k].color } as CSSVars} />
-                {FLAVOURS[k].name}
-              </button>
-            ))}
+        <div className="hero-copy">
+          <div className="hero-intro">
+            <p className="tagline" data-h="" style={d(0)}>Good coffee. Brighter days.</p>
+            <SplitText as="h1" id="h1" auto base={250} text="Café-style coffee, made at home." />
+            <p className="lede" data-h="" style={d(800)}>
+              Rich, creamy instant coffee in single-serve sachets. Empty one into a mug, add water, done.
+            </p>
           </div>
 
-          <div className="flavour-card" aria-live="polite" data-h="" style={d(1040)}>
-            <div className="flavour-name" ref={nameRef}>{f.name}</div>
-            <p className="flavour-desc" ref={descRef}>{f.desc}</p>
-            <div className="meta" ref={metaRef}>
-              <Stars rating={f.rating} />
-              <span>{f.rating.toFixed(1)}</span>
-              <span className="price"><b>From {money(PRICE)}</b><s>{money(WAS_PRICE)}</s></span>
-              <span className="save">Save 10%</span>
+          <div className="hero-details">
+            <div className="picker" role="tablist" aria-label="Choose a flavour" id="picker" data-h="" style={d(920)}>
+              {ORDER.map((k) => (
+                <button key={k} type="button" role="tab" aria-selected={current === k} onClick={() => set(k)}>
+                  <span className="sw" style={{ '--c': FLAVOURS[k].color } as CSSVars} />
+                  {FLAVOURS[k].name}
+                </button>
+              ))}
             </div>
-            <div className="cta-row">
-              <button className="btn btn-primary" type="button" onClick={(e) => add(current, e.currentTarget)}>Add to bag</button>
-              <a className="btn btn-ghost" href="#range">Shop all flavours</a>
-            </div>
-          </div>
 
-          <div className="trust" data-h="" style={d(1160)}>
-            <span><TruckIcon />Free shipping over $75</span>
-            <span><ShieldIcon />30-day money-back guarantee</span>
-            <span><MountainIcon />Made in New Zealand</span>
+            <div className="flavour-card" aria-live="polite" data-h="" style={d(1040)}>
+              <div className="flavour-name" ref={nameRef}>{f.name}</div>
+              <p className="flavour-desc" ref={descRef}>{f.desc}</p>
+              <div className="meta" ref={metaRef}>
+                <Stars rating={f.rating} />
+                <span>{f.rating.toFixed(1)}</span>
+                <span className="price"><b>From {money(PRICE)}</b><s>{money(WAS_PRICE)}</s></span>
+                <span className="save">Save 10%</span>
+              </div>
+              <div className="cta-row">
+                <button className="btn btn-primary" type="button" onClick={(e) => add(current, e.currentTarget)}>Add to bag</button>
+                <a className="btn btn-ghost" href="#range">Shop all flavours</a>
+              </div>
+            </div>
+
+            <div className="trust" data-h="" style={d(1160)}>
+              <span><TruckIcon />Free shipping over $75</span>
+              <span><ShieldIcon />30-day money-back guarantee</span>
+              <span><MountainIcon />Made in New Zealand</span>
+            </div>
           </div>
         </div>
 
